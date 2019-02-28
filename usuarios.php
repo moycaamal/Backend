@@ -167,16 +167,16 @@ $(function eliminar_registro(){
        $.post('includes/_funciones.php', obj, function(i) {
 
        if (i == "1") {
-       $("#infoS").html("Usuario eliminado correctamente").show().delay(2000).fadeOut(400);
+       $("#infoS").html("Usuario eliminado correctamente").show().delay(500).fadeOut(500);
       
        consultar();
      } else {
-       $("#infoD").html("Error al eliminar usuario").show().delay(2000).fadeOut(400);
+       $("#infoD").html("Error al eliminar usuario").show(500).delay().fadeOut(400);
       
      }
        });
     }else{
-      $("#infoD").html("El registro no asido eliminado").show().delay(2000).fadeOut(400);
+      $("#infoD").html("El registro no asido eliminado").show().delay(500).fadeOut(500);
       
     }
   });
@@ -217,7 +217,7 @@ $(function eliminar_registro(){
        $.post('includes/_funciones.php', obj, function(r) {
 
        if (r == "1") {
-       $("#infoS").html("Cambios Guardados Correctamente").show().delay(2000).fadeOut(400);
+       $("#infoS").html("Cambios Guardados Correctamente").show().delay(400).fadeOut(400);
        $("#form_data")[0].reset();
       
        consultar();
