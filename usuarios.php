@@ -150,26 +150,6 @@
    }
   });
 
-   if (mail == "" || pswd == "" || tel == "" || nombre == "") {
-
-    $("#infoD").html("Completa Todos los Campos").show().delay(2000).fadeOut(400);
-
-    }else{
-
-   $.post('includes/_funciones.php', obj, function(a) {
-
-    if (a == "1") {
-       $("#infoS").html("usuario Insertado ").show().delay(2000).fadeOut(400); 
-       $("#form_data")[0].reset();
-     } else {
-       $("#infoD").html("error al Insertar").show().delay(2000).fadeOut(400);
-     }
-
-   });
-
-   }
-
-});
 
 $(function eliminar_registro(){
 
