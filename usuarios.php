@@ -22,7 +22,6 @@
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Usuarios</h1>
         <div class="alert alert-danger" id="infoD" style="display: none;"></div>
-        <div class="alert alert-success" id="infoS" style="display: none;"></div>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
             <button type="button" class="btn btn-sm btn-outline-danger cancelar">Cancelar</button>
@@ -94,7 +93,7 @@
       $(this).slideUp('fast');
       let id=$(this).attr("id");
       if (vista==id) {
-        $(this).slideDown(300);
+        $(this).slideDown(200);
       }
       
     });
@@ -150,6 +149,26 @@
    }
   });
 
+    {
+
+    $("#infoD").html("").show().delay(700).fadeOut(500);
+
+    }else{
+
+   $.post('includes/_funciones.php', obj, function(a) {
+
+    if (a == "1") {
+       $("#infoS").html("usuario guardado ").show().delay(700).fadeOut(500); 
+       $("#form_data")[0].reset();
+     } else {
+       $("#infoD").html("error al guardar").show().delay(700).fadeOut(500);
+     }
+
+   });
+
+   }
+
+});
 
 $(function eliminar_registro(){
 
@@ -167,16 +186,16 @@ $(function eliminar_registro(){
        $.post('includes/_funciones.php', obj, function(i) {
 
        if (i == "1") {
-       $("#infoS").html("Usuario eliminado correctamente").show().delay(500).fadeOut(500);
+       $("#infoS").html("Usuario eliminado ").show().delay(500).fadeOut(600);
       
        consultar();
      } else {
-       $("#infoD").html("Error al eliminar usuario").show(500).delay().fadeOut(400);
+       $("#infoD").html("Error al eliminar usuario").show().delay(500).fadeOut(600);
       
      }
        });
     }else{
-      $("#infoD").html("El registro no asido eliminado").show().delay(500).fadeOut(500);
+      $("#infoD").html("El registro no asido eliminado").show().delay(500).fadeOut(600);
       
     }
   });
@@ -217,12 +236,12 @@ $(function eliminar_registro(){
        $.post('includes/_funciones.php', obj, function(r) {
 
        if (r == "1") {
-       $("#infoS").html("Cambios Guardados Correctamente").show().delay(400).fadeOut(400);
+       $("#infoS").html("cambios guardados").show().delay(600).fadeOut(300);
        $("#form_data")[0].reset();
-      
+      s
        consultar();
      } else {
-       $("#infoD").html("Error al Guardar Cambios").show().delay(2000).fadeOut(400);
+       $("#infoD").html("Error al guardar").show().delay(600).fadeOut(300);
       
      }
 
