@@ -49,6 +49,7 @@
        <form action="#" id="form_data">
   <div class="row">
   <div class="col">
+
        <div class="form-group">
        <label for="nombre">Nombre</label>
        <input type="text" id="nombre" name="nombre" class="form-control">
@@ -63,12 +64,13 @@
         <label for="telefono">Teléfono</label>
        <input type="tel" id="telefono" name="telefono" class="form-control">
        </div>
-       <div class="form-group">
+       <div class= "form-group">
         <label for="password">Contraseña</label>
        <input type="password" id="password" name="password" class="form-control">
        </div>
      </div>
      </div>
+
      <div class="row">
        <div class="col">
          <button type="button" class="btn btn-success " id="guardar_datos">Guardar</button>
@@ -131,7 +133,7 @@
             let usr_telefono = $("#inputTelefono").val();
             let usr_password = $("#inputPassword").val();
             let obj = {
-    "accion": "insertar_usuario",
+               "accion": "insertar_usuario",
                 "nombre": usr_nombre,
                 "mail": usr_correo,
                 "tel": usr_telefono,
@@ -185,16 +187,16 @@ $(function eliminar_registro(){
        $.post('includes/_funciones.php', obj, function(i) {
 
        if (i == "1") {
-       $("#infoS").html("Usuario Eliminado Correctamente").show().delay(2000).fadeOut(400);
+       $("#infoS").html("Usuario eliminado correctamente").show().delay(2000).fadeOut(400);
       
        consultar();
      } else {
-       $("#infoD").html("Error al Eliminar Usuario").show().delay(2000).fadeOut(400);
+       $("#infoD").html("Error al eliminar usuario").show().delay(2000).fadeOut(400);
       
      }
        });
     }else{
-      $("#infoD").html("El Registro No Se a Eliminado").show().delay(2000).fadeOut(400);
+      $("#infoD").html("El registro no asido eliminado").show().delay(2000).fadeOut(400);
       
     }
   });
@@ -217,20 +219,19 @@ $(function eliminar_registro(){
 
 
     $(function editar_registro(){
-  $("#list_usuarios").on("click",".editar_registro", function(k){
+  $("#list_usuarios").on("click",".editar_registro", function(r){
     change_view('insert_data');
   });
 
-  $("#list_usuarios").on("click",".editar_registro", function(e){
+  $("#list_usuarios").on("click",".editar_registro", function(r){
 
        let id = $(this).data('id');
        obj = {
-        "action" : "editar_registro",
-        "registro" : id,
-         "nombre" : nombre,
-          "tel" : tel,
-          "mail" : mail,
-          "password" : pswd
+           "accion": "insertar_usuario",
+                "nombre": usr_nombre,
+                "mail": usr_correo,
+                "tel": usr_telefono,
+                "pass": usr_password
        };
 
        $.post('includes/_funciones.php', obj, function(r) {
